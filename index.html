@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+        <body>
+        
+        
+        <div class="tab">
+          <button class="links" onclick="Abrir(event, 'Inicio')" id="defaultOpen"><i class="fa fa-windows"></i>  Inicio</button>
+          <button class="links" onclick="Abrir(event, 'Profesores')"><i class="fa fa-file-text"></i> Profesores</button>
+          <button class="links" onclick="Abrir(event, 'Empresas')"><i class="fa fa-briefcase"></i> Empresas</button>
+          <button class="links" onclick="Abrir(event, 'Alumnos')"><i class="fa fa-odnoklassniki"></i> Alumnos</button>
+          <button class="links" onclick="Abrir(event, 'Asignaciones')"><i class="fa fa-bookmark-o"></i> Asignaciones</button>
+          <button class="links" onclick="Abrir(event, 'Actividades')"><i class="fa fa-soccer-ball-o"></i> Actividades</button>
+
+        </div>
+        
+        <div id="Inicio" class="contenido">
+            <h1>Inicio</h1>
+            <p>Ésta pagina está hecha para un Proyecto de JSS</p>
+            <p>La página permitira incorporar datos de Profesores, Empresas, Alumnos, Asignaciones de alumnos a cada empresa y sobre todo la Ficha Semanal de los Alumnos.</p>  
+
+            <!-- Slideshow -->
+            <div class="w3-content w3-display-container">
+                <img class="mySlides" src="imagenes/profesor.jpg" style="height:500px; width: 100%;">
+                <img class="mySlides" src="imagenes/alumno.jpg" style="height:500px; width: 100%;">
+                <img class="mySlides" src="imagenes/empresas.jpg" style="height:500px; width: 100%;" >
+              
+                <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+                <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+              </div>
+
+        </div>
+        
+        <!-- Apartado PROFESORES -->
+        <div id="Profesores" class="contenido">
+          <h3>Profesores</h3>
+          <table class="tablaprofesores" width="100%" border="0" cellspacing="0" cellpadding="0">
+              <thead>
+                  <tr>
+                    <th>Cod_Profesor</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                  </tr>
+              </thead>
+            <tbody id="tablaprofe">
+            <tr>
+            <td>1</td>
+            <td>Antonio Manuel</td>
+            <td>Fernández Japón</td>
+            </tr>
+            <tr>
+            <td>2</td>
+            <td>Manuel Francisco</td>
+            <td>Dominguez Tienda</td>
+            </tr>
+            </tbody>
+            </table>
+
+            <button id="profesor" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Añadir Profesor</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Profesor</h4>
+        </div>
+        <div class="modal-body">
+            <form class="form1" action="">
+                <label for="codigoprofe" class="codigoprofe">Cod_Profesor</label>
+                <input id="codigoprofe" type="text" required>
+    
+                <label for="nombreprofe" class="nombre">Nombre</label>
+                <input id="nombreprofe" type="text" required>
+    
+                <label for="apellidosprofe">Apellidos</label>
+                <input id="apellidosprofe" type="text" required>
+
+    
+                <button  id="btn_guardar" onclick="profesor()" type="reset" class="guardar1">Guardar Cambios</button>
+                <p id="nocompleto1" class="nocompleto1"></p>
+
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="borrar1()" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+          
+        </div>
+        
+  <!-- Apartado EMPRESAS -->
+
+        <div id="Empresas" class="contenido">
+          <h3>Empresas</h3>
+          <table class="tablaempr" width="100%" border="0" cellspacing="0" cellpadding="0">
+              <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Dirección</th>
+                    <th>Pag.Web</th>
+                    <th>Persona de Contacto</th>
+                    <th>Teléfono Contacto</th>
+                    <th>Email Contacto</th>
+                    <th>Tutor Laboral</th>
+                    <th>Teléfono</th>
+                    <th>Email</th>
+                  </tr>
+              </thead>
+            <tbody id="tablaempr">
+            <tr>
+            <td>IKEA</td>
+            <td>Av. de Hytassa,22</td>
+            <td><a class="url" href="https://www.ikea.com/es/es/stores/sevilla/">IKEA</a></td>
+            <td>Pepe Hornos</td>
+            <td>615067597</td>
+            <td>pepehornos@gmail.com</td>
+            <td>Antonio Ramos</td>
+            <td>615657664</td>
+            <td>antonioramos@gmail.com</td>
+            </tr>
+
+            <td>Sonicolor</td>
+            <td>CC TORRE SEVILLA</td>
+            <td><a class="url" href="https://sonicolor.es/">Sonicolor</a></td>
+            <td>Jose Pérez</td>
+            <td>615067354</td>
+            <td>joseperezs@gmail.com</td>
+            <td>Roberto Soldado</td>
+            <td>615653647</td>
+            <td>robertosoldado@gmail.com</td>
+            </tr>
+
+            </tbody>
+            </table>
+            <a href=""></a>
+
+            <div class="modal fade" id="orangeModalSubscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-warning" role="document">
+    <!--Contenido-->
+    <div class="modal-content">
+      <!--Cabecera-->
+      <div class="modal-header text-center">
+        <h4 class="modal-title white-text w-100 font-weight-bold py-2">Empresa</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <form class="form1" action="">
+          <label for="nombreempresa" class="nombreempresa">Nombre</label>
+          <input id="nombreempresa" type="text" required>
+
+          <label for="direccionempresa" class="direccionempresa">Direccion</label>
+          <input id="direccionempresa" type="text" required>
+
+          <label for="webempresa">Pag.Web</label>
+          <input id="webempresa" type="text" required>
+
+          <label for="pcontactoempresa">Persona de Contacto</label>
+          <input id="pcontactoempresa" type="text" required>
+
+          <label for="tlfcontactoempresa" class="tlfcontactoempresa">Telefono Contacto</label>
+          <input id="tlfcontactoempresa" type="text" required>
+
+          <label for="emailcontactoempresa" class="emailcontactoempresa">Email Contacto</label>
+          <input id="emailcontactoempresa" type="email" required>
+
+          <label for="tutorempresa" class="tutorempresa">Tutor Laboral</label>
+          <input id="tutorempresa" type="text" required>
+
+          <label for="tutortlfempresa" class="tutortlfempresa">Teléfono</label>
+          <input id="tutortlfempresa" type="text" required>
+
+          <label for="tutoremailempresa" class="tutoremailempresa">Email</label>
+          <input id="tutoremailempresa" type="email" required>
+
+
+          <button  id="btn_guardar" onclick="empresa()" type="reset" class="guardar1">Guardar Cambios</button>
+          <p id="nocompleto2" class="nocompleto2"></p>
+
+      </form>
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="button" onclick="borrar2()" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+
+<div class="text-center">
+  <a href="" class="btn btn-info btn-lg" data-toggle="modal" data-target="#orangeModalSubscription">Añadir Empresa</a>
+</div>
+
+</div>
+
+        <!-- Apartado ALUMNOS -->
+        <div id="Alumnos" class="contenido">
+            <h3>Alumnos</h3>
+            <table class="tablaalumnos" width="100%" border="0" cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                      <th>Alumno</th>
+                      <th>Apellidos</th>
+                      <th>Curso</th>
+                      <th>Ciclo</th>
+                    </tr>
+                </thead>
+              <tbody id="tablaalum">
+              <tr>
+              <td>Jesus</td>
+              <td>Romero Racero</td>
+              <td>1º</td>
+              <td>ASIR</td>
+              </tr>
+
+              <tr>
+              <td>Ana</td>
+              <td>Salas</td>
+              <td>1º</td>
+              <td>ASIR</td>
+              </tr>
+
+              <tr>
+                <td>Pablo</td>
+                <td>Martínez</td>
+                <td>1º</td>
+                <td>ASIR</td>
+                </tr>
+
+              </tbody>
+              </table>
+
+              <div class="modal fade" id="modalSubscriptionForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Alumno</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <form class="form1" action="">
+          <label for="nombrealumno" class="nombrealumno">Nombre</label>
+          <input id="nombrealumno" type="text" required>
+
+          <label for="apellidosalumno" class="nombre">Apellidos</label>
+          <input id="apellidosalumno" type="text" required>
+
+          <label for="cursoalumno">Curso</label>
+          <input id="cursoalumno" type="text" required>
+
+          <label for="cicloalumno">Ciclo</label>
+          <input id="cicloalumno" type="text" required>
+
+
+          <button  id="btn_guardar" onclick="alumno()" type="reset" class="guardar1">Guardar Cambios</button>
+          <p id="nocompleto3" class="nocompleto3"></p>
+
+      </form>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="button" onclick="borrar3()" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center">
+  <a href="" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalSubscriptionForm">Añadir Alumno</a>
+</div>
+</div>
+
+<!-- Apartado ASIGNACIONES -->
+<div id="Asignaciones" class="contenido">
+  <h3>Asignaciones</h3>
+  <table class="tablaasignaciones" width="100%" border="0" cellspacing="0" cellpadding="0">
+      <thead>
+          <tr>
+            <th>Alumno</th>
+            <th>Empresa</th>
+            <th>Tutor docente</th>
+            <th>Inicio Prácticas</th>
+            <th>Fin Prácticas</th>
+          </tr>
+      </thead>
+    <tbody id="tablaasig">
+    <tr>
+    <td>Jesus Romero</td>
+    <td>Ikea</td>
+    <td>Antonio Ramos</td>
+    <td>18/05/2020</td>
+    <td>28/06/2020</td>
+    </tr>
+    <tr>
+    <td>Ana Salas</td>
+    <td>SoniColor</td>
+    <td>Roberto Soldado</td>
+    <td>20/05/2020</td>
+    <td>21/06/2020</td>
+    </tr>
+    </tbody>
+    </table>
+
+    <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Asignación</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <form class="form1" action="">
+          <label for="nombrealumno2" class="nombrealumno2">Alumno</label>
+          <input id="nombrealumno2" type="text" required>
+
+          <label for="empresaalumno" class="empresaalumno">Empresa</label>
+          <input id="empresaalumno" type="text" required>
+
+          <label for="TDAsignacion">Tutor Docente</label>
+          <input id="TDAsignacion" type="text" required>
+
+          <label for="fechain">Inicio Prácticas</label>
+          <input id="fechain" type="text" required>
+
+          <label for="fechafin">Fin Prácticas</label>
+          <input id="fechafin" type="text" required>
+
+
+          <button  id="btn_guardar" onclick="asignacion()" type="reset" class="guardar1">Guardar Cambios</button>
+          <p id="nocompleto4" class="nocompleto4"></p>
+
+      </form>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="button" onclick="borrar4()" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center">
+  <a href="" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalLoginForm">Añadir Asignación</a>
+</div>
+
+    </div>
+
+    <!-- Apartado ACTIVIDADES -->
+<div id="Actividades" class="contenido">
+  <h3>Alumnos</h3>
+
+  <select name="usuarios" id="usuarios">
+    <option value="" disabled selected>Elige un alumno</option>
+  </select>
+</br>
+
+
+<span class="prueba7" >Ciclo</span>
+   <input class="prueba7" id="cicloactividad" type="text" readonly=»readonly»> 
+
+   <span class="prueba7" >Tutor Laboral</span>
+   <input class="prueba7" id="cicloactividad" type="text" readonly=»readonly»>
+ </br>
+
+   <span class="prueba7" >Grado</span>
+   <input class="prueba7" id="cicloactividad" type="text" readonly=»readonly»> 
+
+   <span class="prueba7" >Empresa</span>
+   <input class="prueba7" id="cicloactividad" type="text" readonly=»readonly»>
+   </div>
+  </br>
+
+ </div>
+
+    </div>
+        
+        <script type="text/javascript" src="js/codigo.js"></script>
+        </body>
+</html>
